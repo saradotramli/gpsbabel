@@ -913,7 +913,7 @@ NmeaFormat::nmea_parse_one_line(const QByteArray& ibuf)
       if (ok) {
         int ckval = nmea_cksum(tbuf.mid(1, ckidx - 1));
         // if (ckval != ckcmp) {
-        if (false) //disable checksum validation
+        if (false) {//disable checksum validation
           Warning().nospace() << qSetFieldWidth(2) << qSetPadChar('0') <<  Qt::hex << "Invalid NMEA checksum.  Computed 0x" << ckval << " but found 0x" << ckcmp << ".  Ignoring sentence.";
           return;
         }
